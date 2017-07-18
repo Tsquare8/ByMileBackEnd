@@ -46,16 +46,7 @@ public class ByMileRestController {
 		return u;
 	}
 
-	@RequestMapping(path = "/driverLookup", method = RequestMethod.GET)
-	public List<Driver> driverInfo(Integer driverId, String name, String gender, String type) {
-		if (driverId == null) {
-			driverId = 0;
-		}
-
-		List<Driver> driver = driverRepository.findAllByNameLike(name);
-		return driver;
-	}
-
+	
 	@RequestMapping(path = "/updateDriver", method = RequestMethod.POST)
 	public ResponseEntity<?> updateDriver(@RequestBody Driver driver) {
 
