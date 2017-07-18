@@ -26,16 +26,9 @@ public class ByMileRestController {
 	private DriverRepository driverRepository;
 
 	@RequestMapping(path = "/addDriver", method = RequestMethod.POST)
-	public List<Driver> newDriver(@RequestBody List<Driver> driver) {
-
-		List<Driver> drivers = new ArrayList<Driver>();
-
-		for (Driver d : driver) {
-			driverRepository.save(d);
-			drivers.add(d);
-		}
-
-		return drivers;
+	public Driver newDriver(@RequestBody Driver driver) {
+		driverRepository.save(driver);
+		return driver;
 	}
 
 	@RequestMapping(path = "/findDriverInfo/{driverId}", method = RequestMethod.GET)
